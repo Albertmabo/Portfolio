@@ -17,7 +17,7 @@ const start = () =>{
     try {
         app.listen(PORT, ()=>{
             console.log(`Server is running at PORT ${PORT}`);
-            console.log(`Running on ${process.env.NODE_ENV} mode`);
+            console.log(`Running on ${process.env.NODE_ENV}`);
             
             
         })

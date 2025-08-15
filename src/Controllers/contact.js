@@ -1,6 +1,6 @@
 
-const Contact = require("../../../../E-commerce/Models/laptop")
-const contactMe = require("./")
+const Contact = require("../Models/contact")
+
 //@desc Get All Product
 //@route GET api/v1/users/signup
 //@access private
@@ -18,7 +18,7 @@ const contactMe = (req,res) =>{
         console.log("All fields are mandatory")
     }
 
-    const contact = Laptop.create(req.body);
+    const contact = Contact.create(req.body);
     res.status(200).json({
         success:"success",
         Contact:  contact
