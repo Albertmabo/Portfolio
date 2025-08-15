@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {} = require("../Controllers/contact")
+const {CreateContactMe, getAllcontactMe} = require("../Controllers/contact")
 
-router.route("/").post();
+router.route("/").post(CreateContactMe).get(getAllcontactMe);
 
-module.exports = router
+module.exports = router;
