@@ -1,4 +1,7 @@
-const dotenv = require("dotenv");
+
+import dotenv from "dotenv"
+import connectDB from "./src/db/connect.js"
+
 
 // Loading environment sepcific config
 
@@ -9,12 +12,13 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
-const app = require("./app");
+import app from "./app.js"
 
 const PORT = process.env.PORT || 3001;
 
-const start = () =>{
+const start = async() =>{
     try {
+        await connectDB(process.env.URl)
         app.listen(PORT, ()=>{
             console.log(`Server is running at PORT ${PORT}`);
             console.log(`Running on ${process.env.NODE_ENV}`);
@@ -22,7 +26,7 @@ const start = () =>{
             
         })
     } catch (error) {
-        console.error(errror);
+        console.error("Error stating sever:", error);
         
     }
 }

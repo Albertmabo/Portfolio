@@ -1,11 +1,17 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const feedback = require("./src/Routes/contact")
-
+import feedback from "./src/Routes/contact.js";
+import globalErrorHandler from "./src/Middleware/globalErrorHandler.js";
+import morgan from "morgan";
 
 // Middleware setup
 app.use(express.json());
+if(process.env.NODE_ENV === "development"){
+    app.use(morgan("dev"))
+}
 
-app.use("/api/v1/profile/contactme", feedback);
+app.use("/api/v1/profile", )
+app.use("/api/v1/profile", feedback);
+app.use(globalErrorHandler);
 
-module.exports = app;
+export default app;

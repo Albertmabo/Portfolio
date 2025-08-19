@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
 
+import mongoose from "mongoose";
+import validator from "validator";
 const contactMeSchema = new mongoose.Schema({
     first_name: {
         type: String,
@@ -40,4 +40,4 @@ const contactMeSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model("Contact", contactMeSchema);
+export default mongoose.model("Contact", contactMeSchema);
